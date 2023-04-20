@@ -8,9 +8,10 @@
   define("FIRST_THRESHOLD", 17);
   define("SECOND_THRESHOLD", 13);
   define("THIRD_THRESHOLD", 5);
+  define("FOURTH_THRESHOLD", 0);
 
 
-  //first if statement: if age is greater than or equal to 17
+  //(first if statement) if age is greater than or equal to 17
   if ($age >= FIRST_THRESHOLD) {
     $message = "You're eligible to watch R-rated movies by yourself.";
   }
@@ -19,17 +20,22 @@
   else if ($age >= SECOND_THRESHOLD) {
     $message = "You're eligible to watch PG-13 rated movies by yourself.";
   }
-    
+
   //otherwise, if age is greater than or equal to 5
   else if ($age >= THIRD_THRESHOLD) {
     $message = "You're eligible to watch G or PG rated movies by yourself.";
   }
-    
+
+  //otherwise, if age is 0 or has no value entered
+  else if ($age == FOURTH_THRESHOLD) {
+    $message = "Please enter valid age.";
+  }
+
   //else (any age less than 5)
-  else {
+  else ($age <5) {
    $message = "You should be supervised while watching a movie. Movies are fun, but it is recommended at your age to watch a family friendly movie or have supervision from a responsible adult.";
  }
-
- //displaying the message to the user
+   
+ //displaying the appropreite message back to the user
 echo $message;
 ?>
