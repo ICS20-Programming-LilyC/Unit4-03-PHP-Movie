@@ -31,7 +31,7 @@ elseif ($userAge < 0) {
     $message = "Please enter a valid number for your age.";
 }
 
-  // Otherwise, if nothing is entered, display that they msut enter their age
+  // Otherwise, if nothing is entered, display that they must enter their age
 elseif (empty($userAge)) {
     $message = "Please enter your age.";
 }
