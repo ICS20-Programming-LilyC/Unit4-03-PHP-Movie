@@ -1,41 +1,47 @@
 <?php
 
-  //initializing and declaring variables
-  $age = intval($_POST["user-age"]);
-  $message = "";
+  // Creating constants: first age threshold is 17, second is 13, third is 5
+define("FIRST_THRESHOLD", 17);
+define("SECOND_THRESHOLD", 13);
+define("THIRD_THRESHOLD", 5);
 
-  //setting constants for age thresholds: first is 17, second is 13, third is 5
-  define("FIRST_THRESHOLD", 17);
-  define("SECOND_THRESHOLD", 13);
-  define("THIRD_THRESHOLD", 5);
-  define("FOURTH_THRESHOLD", 0);
+  // Define message that will bes displayed as result later on
+$message = "";
 
+// Get the user's age from input form
+$userAge = intval($_POST["user-age"]);
 
-  //(first if statement) if age is greater than or equal to 17
-  if ($age >= FIRST_THRESHOLD) {
+  // First if statement: if user age is greater than or equal to 17, display that they can see an R-rated movie alone.
+if ($userAge >= FIRST_THRESHOLD) {
     $message = "You're eligible to watch R-rated movies by yourself.";
-  }
-    
-  //otherwise, if age is greater than or equal to 13
-  else if ($age >= SECOND_THRESHOLD) {
+}
+
+  // Otherwise, if age is greater than or equal to 13, display that they can see a PG-13 movie alone.
+elseif ($userAge >= SECOND_THRESHOLD) {
     $message = "You're eligible to watch PG-13 rated movies by yourself.";
-  }
+}
 
-  //otherwise, if age is greater than or equal to 5
-  else if ($age >= THIRD_THRESHOLD) {
+  // Otherwise, if age is greater than or equal to 5, display that they can see a G or PG movie alone.
+elseif ($userAge >= THIRD_THRESHOLD) {
     $message = "You're eligible to watch G or PG rated movies by yourself.";
-  }
+}
 
-  //otherwise, if age is 0 or has no value entered
-  else if ($age == FOURTH_THRESHOLD) {
-    $message = "Please enter valid age.";
-  }
+  // Otherwise, if age is less than 0, display that they must enter a valid age
+elseif ($userAge < 0) {
+    $message = "Please enter a valid number for your age.";
+}
+
+  // Otherwise, if nothing is entered, display that they msut enter their age
+elseif (empty($userAge)) {
+    $message = "Please enter your age.";
+}
 
   //else (any age less than 5)
-  else ($age <5) {
-   $message = "You should be supervised while watching a movie. Movies are fun, but it is recommended at your age to watch a family friendly movie or have supervision from a responsible adult.";
- }
-   
- //displaying the appropreite message back to the user
-echo $message;
+else {
+    $message = "You should be supervised while watching a movie. Movies are fun, but it is recommended at your age to watch a family friendly movie or have supervision from a responsible adult.";
+}
+
+  // Display the results to the user in the "results" iframe
+echo "$message" . " Thanks for your input and happy movie watching!";
+
 ?>

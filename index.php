@@ -44,7 +44,7 @@
   <!--Div-->
     <form action="./calculations.php" method="post" target="results">
       <label for="user-age">Your age:</label>
-      <input type="float" min="0" max="100" name="user-age" placeholder="Age">
+      <input type="float" step="1" name="user-age" placeholder="Age">
       <br>
       <br>
       <input type="submit" id="button" value="Verify" button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
