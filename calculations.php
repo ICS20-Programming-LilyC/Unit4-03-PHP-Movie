@@ -5,7 +5,7 @@
   define("SECOND_THRESHOLD", 13);
   define("THIRD_THRESHOLD", 5);
 
-  // Define message that will be displayed as result after the appropriate input.
+  // Define a message that will be displayed as a result after the appropriate input.
   $message = "";
 
   // Get the user's age from input form
